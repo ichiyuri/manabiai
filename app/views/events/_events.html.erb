@@ -11,6 +11,7 @@
         <div>
           <p><%= event.content %></p>
         </div>
+        <%= render 'joins/joins_button', event: event %>
         <div>
           <% if current_user == event.user %>
             <%= link_to "Delete", event, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>

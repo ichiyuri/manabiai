@@ -13,5 +13,6 @@ class ApplicationController < ActionController::Base
   
   def counts(user)
     @count_events = user.events.count
+    @count_joins = user.joins.count
   end
 end

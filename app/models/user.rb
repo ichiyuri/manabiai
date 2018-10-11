@@ -6,4 +6,19 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :events
+  has_many :joins
+  has_many :join_events, through: :joins, source: :event
+  
+  def join(event)
+    self.joins.find_or_create_by(event_id: event.id)
+  end
+
+  def unjoin(event)
+    join = self.joins.find_by(event_id: event.id)
+    join.destroy if join
+  end
+
+  def join?(event)
+    self.join_events.include?(event)
+  end
 end

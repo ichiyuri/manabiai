@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009053514) do
+ActiveRecord::Schema.define(version: 20181011025516) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20181009053514) do
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
+  create_table "joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_joins_on_event_id", using: :btree
+    t.index ["user_id", "event_id"], name: "index_joins_on_user_id_and_event_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_joins_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
@@ -32,4 +42,6 @@ ActiveRecord::Schema.define(version: 20181009053514) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "joins", "events"
+  add_foreign_key "joins", "users"
 end
