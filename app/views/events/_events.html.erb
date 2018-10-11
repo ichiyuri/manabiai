@@ -9,7 +9,7 @@
           <%= link_to event.user.name, user_path(event.user) %> <span class="text-muted">posted at <%= event.created_at %></span>
         </div>
         <div>
-          <p><%= event.content %></p>
+          <p><%= event.title %></p>
         </div>
         <%= render 'joins/joins_button', event: event %>
         <div>

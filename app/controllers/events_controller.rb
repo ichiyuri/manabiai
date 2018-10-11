@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:destroy]
+
 
   def create
     @event = current_user.events.build(event_params)
@@ -22,7 +24,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:content)
+    params.require(:event).permit(:content , :title , :item)
   end
   
   def correct_user
