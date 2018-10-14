@@ -1,11 +1,11 @@
 <% if current_user.join?(event) %>
   <%= form_for(current_user.joins.find_by(event_id: event.id), html: { method: :delete }) do |f| %>
     <%= hidden_field_tag :event_id, event.id %>
-    <%= f.submit 'Unjoin', class: 'btn btn-danger btn-block' %>
+    <%= f.submit 'Unjoin', class: 'btn btn-danger' %>
   <% end %>
 <% else %>
   <%= form_for(current_user.joins.build) do |f| %>
     <%= hidden_field_tag :event_id, event.id %>
-    <%= f.submit 'Join', class: 'btn btn-primary btn-block' %>
+    <%= f.submit 'Join', class: 'btn btn-primary' %>
   <% end %>
 <% end %>

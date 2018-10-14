@@ -1,0 +1,32 @@
+<h1>id = <%= @event.id %> のイベント詳細ページ</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @event.id %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @event.title %></td>
+  </tr>
+  <tr>
+    <th>開始時間</th>
+    <td><%= @event.start %></td>
+  </tr>
+  <tr>
+    <th>終了時間</th>
+    <td><%= @event.finish %></td>
+  </tr>
+  <tr>
+    <th>持ち物</th>
+    <td><%= @event.item %></td>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <td><%= @event.content %></td>
+  </tr>
+</table>
+
+<%= link_to '一覧に戻る', root_path, class: 'btn btn-default' %>
+<%= link_to 'このタスクを編集する', edit_event_path(@event), class: 'btn btn-default' %>
+<%= link_to 'このタスクを削除する', @event, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<%= render 'joins/joins_button', event: @event %>

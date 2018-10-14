@@ -13,10 +13,11 @@
         </div>
         <%= render 'joins/joins_button', event: event %>
         <div>
-          <% if current_user == event.user %>
-            <%= link_to "Delete", event, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
-          <% end %>
+          <%# if current_user == event.user %>
+            <%#= link_to "Delete", event, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+          <%# end %>
         </div>
+        <div><%= link_to 'Show', event, class: 'btn btn-primary btn-xs' %></div>
       </div>
     </li>
   <% end %>
