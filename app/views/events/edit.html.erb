@@ -6,18 +6,18 @@
         <%= f.text_field :title, class: 'form-control', rows: 5  %>
       </div>
       <div class="form-group">
-          <%= f.label :start, "開始時間" %>
+          <h3>開始時間</h3>
           <div class='input-group date datepicker'>
-              <%= f.text_field :start, class: 'form-control' %>
+              <%= f.text_field :start, data: { :date_format => 'YYYY/MM/DD hh:mm:ss' }, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD hh:mm:ss' %>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
           </div>
-      </div>
-      <div class="form-group">
-          <%= f.label :finish, "終了時間" %>
+        </div>
+        <div class="form-group">
+          <h3>終了時間</h3>
           <div class='input-group date datepicker'>
-              <%= f.text_field :finish, class: 'form-control' %>
+              <%= f.text_field :finish, data: { :date_format => 'YYYY/MM/DD hh:mm:ss' }, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD hh:mm:ss' %>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
@@ -35,3 +35,11 @@
 <% end %>
 
 <%= link_to '一覧に戻る', root_path %>
+
+<script>
+  var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
+  $(function(){
+      $('.datepicker').attr(data);
+      $('.datepicker').datetimepicker();
+  });
+</script>
