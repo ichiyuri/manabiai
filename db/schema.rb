@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20181011025516) do
     t.datetime "start"
     t.datetime "finish"
     t.string   "item"
+    t.string   "place"
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at", null: false

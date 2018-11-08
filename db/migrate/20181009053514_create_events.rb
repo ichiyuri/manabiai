@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.datetime :start
       t.datetime :finish
       t.string :item
+      t.string :place
       t.string :content
       t.references :user, foreign_key: true
 
