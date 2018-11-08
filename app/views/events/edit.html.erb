@@ -1,6 +1,7 @@
 <h1>イベント編集ページ</h1>
 
 <%= form_for(@event) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-group">
         <%= f.label :title, 'タイトル' %>
         <%= f.text_field :title, class: 'form-control', rows: 5  %>

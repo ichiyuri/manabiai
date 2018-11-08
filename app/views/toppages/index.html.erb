@@ -2,6 +2,7 @@
   <div class="row">
     <aside class="col-md-4">
       <%= form_for(@event) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
           <h3>タイトル</h3>
           <%= f.text_area :title, class: 'form-control'%>
